@@ -1,0 +1,6 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        ["effector/babel-plugin", {"reactSSr": true, "addLoc": true}]
+    ]
+}

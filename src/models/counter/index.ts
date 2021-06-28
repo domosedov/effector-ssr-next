@@ -1,5 +1,5 @@
-import { root } from "../domain";
+import { createEvent, createStore } from "effector-root";
 
-export const $count = root.createStore(0);
-export const inc = root.createEvent();
-export const dec = root.createEvent();
+export const $count = createStore(0);
+export const inc = createEvent();
+export const dec = createEvent();

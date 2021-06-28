@@ -1,23 +1,16 @@
-import { AppProps } from "next/app";
-import { Provider } from "effector-react/ssr";
+import type { FC } from 'react'
+import type { AppProps } from 'next/app'
+import { Provider } from 'effector-react/ssr'
+import { root } from 'effector-root'
 
-import { Navbar } from "../components/navbar";
-import "../models/init.ts";
-import { fork, Scope, serialize } from "effector";
-import { root } from "../models/domain";
-import { Posts } from "../components/posts";
+import '../models/init.ts'
+import { Navbar } from '../components/navbar'
+import { Posts } from '../components/posts'
+import { useScope } from '../models/use-scope'
+import { INITIAL_STATE_KEY } from '../configs/constants'
 
-let clientScope: Scope;
-
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  const scope = fork(root, {
-    values: {
-      ...(clientScope ? serialize(clientScope, { onlyChanges: true }) : {}),
-      ...pageProps.initialState,
-    },
-  });
-
-  if (typeof window !== "undefined") clientScope = scope;
+const Application: FC<AppProps> = ({ Component, pageProps }) => {
+  const scope = useScope(root, pageProps[INITIAL_STATE_KEY])
 
   return (
     <Provider value={scope}>
@@ -25,7 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Posts />
       <Component {...pageProps} />
     </Provider>
-  );
-};
+  )
+}
 
-export default MyApp;
+export default Application

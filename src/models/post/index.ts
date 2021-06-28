@@ -1,6 +1,6 @@
-import { root } from "../domain";
+import { createEffect, createStore } from "effector-root";
 import { Post } from "./types";
 
-export const $posts = root.createStore<Post[]>([]);
+export const $posts = createStore<Post[]>([]);
 
-export const fetchPostsFx = root.createEffect<void, Post[]>();
+export const fetchPostsFx = createEffect<void, Post[]>();

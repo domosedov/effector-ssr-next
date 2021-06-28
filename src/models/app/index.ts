@@ -1,3 +1,3 @@
-import { root } from "../domain";
+import { createEffect } from "effector-root";
 
-export const fetchTodosAndPostsFx = root.createEffect<void, void>();
+export const fetchTodosAndPostsFx = createEffect<void, void>();

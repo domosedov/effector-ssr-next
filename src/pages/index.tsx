@@ -16,8 +16,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export const HomePage: FC = () => {
   return (
-    <Box>
-      <Button>Click me</Button>
+    <Box css={{ px: '$10' }}>
+      <Button css={{ fontWeight: '$light' }}>Click me</Button>
       <h1>Home Page</h1>
       <Counter />
       <Todos />

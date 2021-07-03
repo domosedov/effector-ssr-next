@@ -4,7 +4,7 @@ import type { GetServerSideProps } from 'next'
 import { Counter } from '@components/counter'
 import { Todos } from '@components/todos'
 import { User } from '@components/user'
-import { Button } from '@components/ui/button'
+import { Box, Button } from '@components/ui'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
@@ -16,13 +16,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export const HomePage: FC = () => {
   return (
-    <div>
+    <Box>
       <Button>Click me</Button>
       <h1>Home Page</h1>
       <Counter />
       <Todos />
       <User />
-    </div>
+    </Box>
   )
 }
 

@@ -21,4 +21,8 @@ export const Button = styled('button', {
     outline: 'none',
     boxShadow: '0 0px 0px 2px red',
   },
+
+  '&:disabled': {
+    backgroundColor: 'gray'
+  }
 })
